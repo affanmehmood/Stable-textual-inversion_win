@@ -215,7 +215,7 @@ def main():
     )
 
     opt = parser.parse_args()
-    seed_everything(opt.seed)
+#     seed_everything(opt.seed)
 
     config = OmegaConf.load("configs/stable-diffusion/v1-inference.yaml")  # TODO: Optionally download from same location as ckpt and chnage this logic
     model = load_model_from_config(config, opt.ckpt)  # TODO: check path
