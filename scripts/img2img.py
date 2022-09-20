@@ -261,7 +261,7 @@ def main():
     grid_count = len(os.listdir(outpath)) - 1
     
 
-    assert os.path.isfile(opt.initimg)
+#     assert os.path.isfile(opt.initimg)
     init_image = load_img(opt.initimg).to(device)
     init_image = repeat(init_image, '1 ... -> b ...', b=batch_size)
     init_latent = model.get_first_stage_encoding(model.encode_first_stage(init_image))  # move to latent space
