@@ -43,6 +43,9 @@ RUN pip3 install --no-cache-dir pillow
 RUN pip3 install --no-cache-dir cmake
 RUN pip3 install --no-cache-dir  --upgrade pip
 
+RUN pip3 install pytest==7.0.1
+RUN pip3 install gym==0.15.7
+
 # RUN pip3 install --no-cache-dir -r requirements.txt
 
 # RUN pip3 install taming-transformers
