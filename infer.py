@@ -171,6 +171,7 @@ def main(prompt, initimg, outdir, ckpt, embedding_path, skip_grid=True, ddim_ste
 
 
 if __name__ == "__main__":
+    print('torch.__version__', torch.__version__)
     main(prompt='blue nike air jordan', initimg='inputs/img.png', outdir='output/',
          ckpt='models/sd-v1-4.ckpt', embedding_path='models/embeddings.pt', ddim_eta=0.0,
          n_samples=1, n_iter=1, scale=10.0, ddim_steps=50, strength=0.55)
