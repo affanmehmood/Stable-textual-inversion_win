@@ -43,8 +43,6 @@ RUN pip3 install --no-cache-dir pillow
 RUN pip3 install --no-cache-dir cmake
 RUN pip3 install --no-cache-dir  --upgrade pip
 
-RUN pip3 install pytest==7.0.1
-RUN pip3 install gym==0.15.7
 
 # RUN pip3 install --no-cache-dir -r requirements.txt
 
@@ -70,6 +68,14 @@ RUN pip3 install omegaconf einops pytorch-lightning test-tube transformers korni
 
 RUN git clone https://github.com/affanmehmood/Stable-textual-inversion_win.git
 RUN pip3 install -e Stable-textual-inversion_win --quiet
+
+RUN pip3 uninstall torch -y
+RUN pip3 uninstall torchvision -y
+RUN pip3 uninstall torchaudio -y
+RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+
+RUN pip3 install pytest==7.0.1
+RUN pip3 install gym==0.15.7
 
 # RUN pip3 install -e Stable-textual-inversion_win --quiet
 
