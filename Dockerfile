@@ -12,15 +12,13 @@ FROM nvidia/cuda:10.2-cudnn7-devel
 
 # RUN apt-get -y update && apt-get -y install git gcc llvm-9-dev cmake libaio-dev vim wget
 
-
 # CMD nvidia-smi
 # set up environment
 RUN rm /etc/apt/sources.list.d/cuda.list
 RUN rm /etc/apt/sources.list.d/nvidia-ml.list
-
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y curl
 RUN apt-get install unzip
-RUN apt-get -y install python3
+RUN apt-get -y install python3.7
 RUN apt-get -y install python3-pip
 RUN pip3 install --upgrade pip
 RUN apt-get install make
