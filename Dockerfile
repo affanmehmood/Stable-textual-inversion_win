@@ -68,7 +68,9 @@ RUN pip3 install -e taming-transformers --quiet
 RUN pip3 install omegaconf einops pytorch-lightning==1.6.5 test-tube transformers kornia -e git+https://github.com/openai/CLIP.git@main#egg=clip
 
 RUN git clone https://github.com/affanmehmood/Stable-textual-inversion_win.git
-RUN pip3 install -e Stable-textual-inversion_win --quiet
+ RUN pip3 install -e . --quiet
+
+# RUN pip3 install -e Stable-textual-inversion_win --quiet
 
 
 # RUN pip3 install torch torchvision torchaudio
