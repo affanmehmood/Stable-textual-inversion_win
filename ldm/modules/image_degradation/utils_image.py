@@ -183,7 +183,7 @@ def mkdir_and_rename(path):
 # get uint8 image of size HxWxn_channles (RGB)
 # --------------------------------------------
 def imread_uint(path, n_channels=3):
-    #  input: path
+    #  inputs: path
     # output: HxWx3(RGB or GGG), or HxWx1 (G)
     if n_channels == 1:
         img = cv2.imread(path, 0)  # cv2.IMREAD_GRAYSCALE
@@ -663,7 +663,7 @@ def calculate_ssim(img1, img2, border=0):
         elif img1.shape[2] == 1:
             return ssim(np.squeeze(img1), np.squeeze(img2))
     else:
-        raise ValueError('Wrong input image dimensions.')
+        raise ValueError('Wrong inputs image dimensions.')
 
 
 def ssim(img1, img2):
@@ -714,8 +714,8 @@ def calculate_weights_indices(in_length, out_length, scale, kernel, kernel_width
     x = torch.linspace(1, out_length, out_length)
 
     # Input-space coordinates. Calculate the inverse mapping such that 0.5
-    # in output space maps to 0.5 in input space, and 0.5+scale in output
-    # space maps to 1.5 in input space.
+    # in output space maps to 0.5 in inputs space, and 0.5+scale in output
+    # space maps to 1.5 in inputs space.
     u = x / scale + 0.5 * (1 - 1 / scale)
 
     # What is the left-most pixel that can be involved in the computation?
@@ -727,7 +727,7 @@ def calculate_weights_indices(in_length, out_length, scale, kernel, kernel_width
     # of this function.
     P = math.ceil(kernel_width) + 2
 
-    # The indices of the input pixels involved in computing the k-th output
+    # The indices of the inputs pixels involved in computing the k-th output
     # pixel are in row k of the indices matrix.
     indices = left.view(out_length, 1).expand(out_length, P) + torch.linspace(0, P - 1, P).view(
         1, P).expand(out_length, P)
@@ -765,7 +765,7 @@ def calculate_weights_indices(in_length, out_length, scale, kernel, kernel_width
 # --------------------------------------------
 def imresize(img, scale, antialiasing=True):
     # Now the scale should be the same for H and W
-    # input: img: pytorch tensor, CHW or HW [0,1]
+    # inputs: img: pytorch tensor, CHW or HW [0,1]
     # output: CHW or HW [0,1] w/o round
     need_squeeze = True if img.dim() == 2 else False
     if need_squeeze:
@@ -838,7 +838,7 @@ def imresize(img, scale, antialiasing=True):
 # --------------------------------------------
 def imresize_np(img, scale, antialiasing=True):
     # Now the scale should be the same for H and W
-    # input: img: Numpy, HWC or HW [0,1]
+    # inputs: img: Numpy, HWC or HW [0,1]
     # output: HWC or HW [0,1] w/o round
     img = torch.from_numpy(img)
     need_squeeze = True if img.dim() == 2 else False

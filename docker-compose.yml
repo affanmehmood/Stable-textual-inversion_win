@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    image: nvidia/cuda:10.2-cudnn7-devel
+#    command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    volumes:
+      - ./inputs:/inputs
+      - ./outputs:/output
+#      - /pretrained_models:/pretrained_models
+    ports:
+      - "5005:5005"
+#
+#  app:
+#    build: .
+#    ports:
+#      - "5005:5005"
+#    volumes:
+#      - "/input_images:/input_images"
+#      - "/output_latents:/output_latents"
+#      - "/pretrained_models:/pretrained_models"

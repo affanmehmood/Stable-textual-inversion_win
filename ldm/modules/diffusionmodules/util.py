@@ -199,7 +199,7 @@ def mean_flat(tensor):
 def normalization(channels):
     """
     Make a standard normalization layer.
-    :param channels: number of input channels.
+    :param channels: number of inputs channels.
     :return: an nn.Module for normalization.
     """
     return GroupNorm32(32, channels)

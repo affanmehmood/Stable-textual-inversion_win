@@ -74,7 +74,7 @@ class TimestepBlock(nn.Module):
 class TimestepEmbedSequential(nn.Sequential, TimestepBlock):
     """
     A sequential module that passes timestep embeddings to the children that
-    support it as an extra input.
+    support it as an extra inputs.
     """
 
     def forward(self, x, emb, context=None):
@@ -163,7 +163,7 @@ class Downsample(nn.Module):
 class ResBlock(TimestepBlock):
     """
     A residual block that can optionally change the number of channels.
-    :param channels: the number of input channels.
+    :param channels: the number of inputs channels.
     :param emb_channels: the number of timestep embedding channels.
     :param dropout: the rate of dropout.
     :param out_channels: if specified, the number of out channels.
@@ -346,7 +346,7 @@ def count_flops_attn(model, _x, y):
 
 class QKVAttentionLegacy(nn.Module):
     """
-    A module which performs QKV attention. Matches legacy QKVAttention + input/ouput heads shaping
+    A module which performs QKV attention. Matches legacy QKVAttention + inputs/ouput heads shaping
     """
 
     def __init__(self, n_heads):
@@ -413,7 +413,7 @@ class QKVAttention(nn.Module):
 class UNetModel(nn.Module):
     """
     The full UNet model with attention and timestep embedding.
-    :param in_channels: channels in the input Tensor.
+    :param in_channels: channels in the inputs Tensor.
     :param model_channels: base channel count for the model.
     :param out_channels: channels in the output Tensor.
     :param num_res_blocks: number of residual blocks per downsample.
@@ -709,7 +709,7 @@ class UNetModel(nn.Module):
 
     def forward(self, x, timesteps=None, context=None, y=None,**kwargs):
         """
-        Apply the model to an input batch.
+        Apply the model to an inputs batch.
         :param x: an [N x C x ...] Tensor of inputs.
         :param timesteps: a 1-D batch of timesteps.
         :param context: conditioning plugged in via crossattn
@@ -937,7 +937,7 @@ class EncoderUNetModel(nn.Module):
 
     def forward(self, x, timesteps):
         """
-        Apply the model to an input batch.
+        Apply the model to an inputs batch.
         :param x: an [N x C x ...] Tensor of inputs.
         :param timesteps: a 1-D batch of timesteps.
         :return: an [N x K] Tensor of outputs.

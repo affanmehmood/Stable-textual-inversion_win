@@ -1,4 +1,4 @@
-"""make variations of input image"""
+"""make variations of inputs image"""
 
 import argparse, os, sys, glob
 import PIL
@@ -49,16 +49,16 @@ def load_img(path):
     image = Image.open(path).convert("RGB")
     w, h = image.size
     if image.size == (256, 256):
-        print(f"loaded input image of size ({w}, {h}) from {path}")
+        print(f"loaded inputs image of size ({w}, {h}) from {path}")
         w, h = map(lambda x: x - x % 32, (w, h))  # resize to integer multiple of 32
         image = image.resize((512, 512), resample=PIL.Image.LANCZOS)
-        print(f"input image size too small resizing to 512x512px")
+        print(f"inputs image size too small resizing to 512x512px")
         image = np.array(image).astype(np.float32) / 255.0
         image = image[None].transpose(0, 3, 1, 2)
         image = torch.from_numpy(image)
         return 2.*image - 1.
     else:
-        print(f"loaded input image of size ({w}, {h}) from {path}")
+        print(f"loaded inputs image of size ({w}, {h}) from {path}")
         w, h = map(lambda x: x - x % 32, (w, h))  # resize to integer multiple of 32
         image = image.resize((w, h), resample=PIL.Image.LANCZOS)
         image = np.array(image).astype(np.float32) / 255.0
@@ -82,7 +82,7 @@ def main():
         "--initimg",
         type=str,
         nargs="?",
-        help="path to the input image"
+        help="path to the inputs image"
     )
 
     parser.add_argument(
