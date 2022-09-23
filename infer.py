@@ -1,5 +1,6 @@
 """make variations of inputs image"""
-
+import sys
+print('Python Version: ', sys.version_info[0], sys.version_info[1])
 import argparse, os, sys, glob
 import PIL
 import torch
