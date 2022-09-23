@@ -18,7 +18,7 @@ RUN rm /etc/apt/sources.list.d/cuda.list
 RUN rm /etc/apt/sources.list.d/nvidia-ml.list
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y curl
 RUN apt-get install unzip
-RUN apt-get -y install python3.7
+RUN apt-get -y install python3.8
 RUN apt-get -y install python3-pip
 RUN pip3 install --upgrade pip
 RUN apt-get install make
@@ -74,8 +74,8 @@ RUN pip3 uninstall torchvision -y
 RUN pip3 uninstall torchaudio -y
 RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 
-RUN pip3 install pytest==7.0.1
-RUN pip3 install gym==0.15.7
+# RUN pip3 install pytest==7.0.1
+# RUN pip3 install gym==0.15.7
 
 # RUN pip3 install -e Stable-textual-inversion_win --quiet
 
