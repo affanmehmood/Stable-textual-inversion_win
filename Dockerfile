@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
 RUN apt-get install unzip
 RUN apt-get remove --auto-remove python3
 RUN apt-get -y install python3.8
-RUN apt-get -y install python3.8-pip
+# RUN apt-get -y install python3.8-pip
 RUN pip3 install --upgrade pip
 RUN apt-get install make
 RUN apt-get update
